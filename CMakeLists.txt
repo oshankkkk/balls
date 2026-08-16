@@ -8,4 +8,5 @@ find_package(raylib REQUIRED)
 
 add_executable(ss main.c)
 
-target_link_libraries(ss raylib)
+target_link_libraries(ss raylib m)
+
