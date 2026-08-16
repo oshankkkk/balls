@@ -8,17 +8,17 @@
 #include "colors.c"
 #define WIDTH 1200
 #define HEIGHT 800 
-#define AGENTCOUNT 1000
-#define MINRAD 8
-#define MAXRAD 12
-#define MINSPEED -10
-#define MAXSPEED 10
+#define AGENTCOUNT 4000
+#define MINRAD 2
+#define MAXRAD 5
+#define MINSPEED -1000
+#define MAXSPEED 1000
 
 void drawballs(Agent *agents){
 
 	for (int x=0;x<AGENTCOUNT;x++){
 
-		DrawCircleV(agents[x].position,agents[x].radius, hotCold[agents[x].colorcode]);
+		DrawCircleV(agents[x].position,agents[x].radius, colors[agents[x].colorcode]);
 	}	
 }
 
@@ -30,8 +30,6 @@ void updateballs(Agent *agents, float dt){
 		agents[x].acc.y = agents[x].force.y * agents[x].mass;
 		ballcolors(agents, x);
 
-		//printf("accx-->%.0f",agents[x].acc.x);
-		//printf("accy-->%.0f",agents[x].acc.y);
 		agents[x].velocity.x += agents[x].acc.x * dt;
 		agents[x].velocity.y += agents[x].acc.y * dt;
 
