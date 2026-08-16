@@ -1,12 +1,12 @@
-
 # Elastic collisons
-#### (Relearning physics cause i dont remember shit from school)
-Elastic collision is when 2 objects collide and they are not intact after the collision and no energy is lost in the process. If some enegry is lost its a apporximate elastic collision. If the 2 objects collide and move in 1 blob mass, its a perfect elastic incollison.
-
 ##### References
 Elastic collisions: https://youtu.be/M2xnGcaaAi4?si=1Fg-H-VqkGXTckAM
 Vectors: https://youtu.be/Ej3ZVxljJfo?si=vD_4lobvDFK3ZdFm
-Collisions systems: https://youtu.be/dJNFPv9Mj-Y?si=-EGnxlr642aCHrX-
+Code train: https://youtu.be/dJNFPv9Mj-Y?si=Ac6ui0wu5mC-AkFL
+Papers: https://dipamsen.github.io/notebook/page/collisions.pdf, https://www.vobarian.com/collisions/2dcollisions2.pdf
+
+#### (Relearning physics cause i dont remember shit from school)
+Elastic collision is when 2 objects collide and they are not intact after the collision and no energy is lost in the process. If some enegry is lost its a apporximate elastic collision. If the 2 objects collide and move in 1 blob mass, its a perfect elastic incollison.
 
 #### Making Stable collisions
 ###### Finding the vector between the centers
@@ -39,7 +39,6 @@ P_1=(2,3),\qquad P_2=(5,7)
 [
 \vec d=(3,4)
 ]
-
 ###### Finding the distance
 
 Pythagoras:
@@ -51,7 +50,6 @@ d=\sqrt{3^2+4^2}=5
 ]
 
 ###### Dividing the vector by its length for the unit vector
-
 [
 n_x=\frac{\Delta x}{d}
 ]
@@ -154,12 +152,53 @@ velocity = -normal component + tangent component
 ```
 
 The formula for reflecting one velocity off a surface is:
-
 [
 \boxed{v' = v - 2(v\cdot n)n}
 ]
 
-> But for two moving balls, you generally don't just reflect each ball's velocity independently. You use their relative velocity and masses, which leads to the collision impulse equation.
+## Elastic collision formula
 
-Next step with two balls of equal mass, draw the vectors, and derive the impulse equations.
+\[
+\vec{v}_1' =
+\vec{v}_1 +
+\frac{2m_2}{m_1+m_2}
+\frac{(\vec{v}_2-\vec{v}_1)\cdot(\vec{x}_2-\vec{x}_1)}
+{\lVert\vec{x}_2-\vec{x}_1\rVert^2}
+(\vec{x}_2-\vec{x}_1)
+\]
+
+\[
+\vec{v}_2' =
+\vec{v}_2 +
+\frac{2m_1}{m_1+m_2}
+\frac{(\vec{v}_1-\vec{v}_2)\cdot(\vec{x}_1-\vec{x}_2)}
+{\lVert\vec{x}_1-\vec{x}_2\rVert^2}
+(\vec{x}_1-\vec{x}_2)
+\]
+
+```
+
+ Position + velocity       
+        ↓
+ Acceleration             
+        ↓
+ Forces → acceleration
+        ↓
+ Mass
+        ↓
+ Momentum
+        ↓
+ Mass-dependent collisions
+
+```
+
+Games use impluse which is j = delta*p
+
+> velocity is displacement/time
+> acceleration is change of velocity/time
+> mass is matter count
+> weight is mass+gravity
+> f=ma
+> momentum is mass by velocity
+
 
